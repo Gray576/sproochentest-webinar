@@ -1,0 +1,226 @@
+:root {
+  color-scheme: light;
+  --ink: #1a2627;
+  --muted: #607174;
+  --line: #d8e1df;
+  --paper: #f7f4ee;
+  --surface: #ffffff;
+  --teal: #1d6f6a;
+  --teal-dark: #12524f;
+  --gold: #c68a3f;
+  --sky: #d9ebef;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 34px 0 30px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.8fr);
+  min-height: calc(100vh - 120px);
+  align-items: center;
+  gap: 54px;
+  padding: 30px 0 34px;
+}
+
+.hero-copy {
+  max-width: 720px;
+}
+
+.eyebrow {
+  margin: 0 0 22px;
+  color: var(--teal-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  max-width: 690px;
+  font-size: clamp(3.1rem, 9vw, 6.8rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.lead {
+  max-width: 670px;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: clamp(1.06rem, 1.5vw, 1.32rem);
+  line-height: 1.58;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.primary-action,
+.secondary-action {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 0 20px;
+  font-size: 0.98rem;
+  font-weight: 760;
+  white-space: nowrap;
+}
+
+.primary-action {
+  background: var(--teal);
+  color: #ffffff;
+}
+
+.secondary-action {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.74);
+  color: var(--ink);
+}
+
+.exam-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--line) 80%, var(--teal));
+  border-radius: 8px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.9)),
+    url("https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=1100&q=80");
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 24px 70px rgba(22, 54, 55, 0.14);
+  padding: 20px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  color: var(--teal-dark);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.panel-header strong {
+  border-radius: 999px;
+  background: var(--gold);
+  color: #ffffff;
+  padding: 6px 10px;
+}
+
+.topic-card {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 14px;
+  min-height: 94px;
+  align-items: center;
+  border-top: 1px solid rgba(18, 82, 79, 0.18);
+  background: rgba(255, 255, 255, 0.72);
+  padding: 16px 4px;
+}
+
+.topic-card span {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--sky);
+  color: var(--teal-dark);
+  font-weight: 850;
+}
+
+.topic-card p {
+  margin: 0;
+  color: #263638;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--line);
+}
+
+.details article {
+  background: var(--surface);
+  padding: 24px;
+}
+
+.details h2 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.details p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 860px) {
+  .page-shell {
+    width: min(100% - 24px, 680px);
+    padding-top: 18px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 34px;
+    padding-top: 26px;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 14vw, 5.4rem);
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primary-action,
+  .secondary-action {
+    width: 100%;
+  }
+
+  .details {
+    grid-template-columns: 1fr;
+  }
+}
